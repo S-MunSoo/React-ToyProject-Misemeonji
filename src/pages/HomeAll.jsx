@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { misemeonjiAction } from '../redux/actions/misemeonjiAction'
 
 const HomeAll = () => {
-  return <div>하이하이</div>
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(misemeonjiAction.getDust())
+  }, [])
+  return <div></div>
 }
 
 export default HomeAll

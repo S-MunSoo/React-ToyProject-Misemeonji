@@ -25,8 +25,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "server": "json-server --watch db.json --port 8000"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -50,5 +49,6 @@
     "eslint-config-prettier": "^8.5.0",
     "prettier": "^2.7.1",
     "redux-logger": "^3.0.6"
-  }
+  },
+  "proxy": "https://apis.data.go.kr/"
 }
