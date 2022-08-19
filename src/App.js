@@ -1,23 +1,21 @@
-import { Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.scss'
 import FooterBar from './components/FooterBar'
+import AllArea from './pages/AllArea'
 import FavorList from './pages/FavorList'
-import HomeAll from './pages/HomeAll'
-import LocRegion from './pages/LocRegion'
-
-//앤드포인트: http://apis.data.go.kr/B552584/ArpltnInforInqireSvc
-// Jjw1n2CnacTgMtOHvjcbUwGWbh5kfOUYE2%2Flz2hz1QxUY8cQz36%2B9IPSHGI3tYmqyROMd8Y5CDW7zXpuiOuUSQ%3D%3D
+import MyHome from './pages/MyHome'
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomeAll />} />
-        <Route path="/loc" element={<LocRegion />} />
-        <Route path="/loc/:id" element={<FavorList />} />
+        <Route path="/" element={<MyHome />} />
+        <Route path="/allarea" element={<AllArea />} />
+        <Route path="/favor" element={<FavorList />} />
+        <Route path="/*" element={<p>Not Found</p>} />
       </Routes>
       <FooterBar />
-    </>
+    </BrowserRouter>
   )
 }
 

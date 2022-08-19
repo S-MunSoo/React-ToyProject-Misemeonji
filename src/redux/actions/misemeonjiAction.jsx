@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import { dustActions } from '../reducers/misemeonjiReducer'
 const API_KEY = process.env.REACT_APP_SERVICE_KEY
 
 function getDust() {
@@ -24,7 +24,7 @@ function getDust() {
           isLiked: false,
         })
       })
-      console.log(dust)
+      dispatch(dustActions.setSido(dust))
     } catch (error) {
       console.log(error)
     }

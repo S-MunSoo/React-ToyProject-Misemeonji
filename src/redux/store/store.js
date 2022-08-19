@@ -1,17 +1,10 @@
-import {
-  applyMiddleware,
-  compose,
-  legacy_createStore as createStore,
-} from 'redux'
-import logger from 'redux-logger'
-import thunk from 'redux-thunk'
-import rootReducer from '../reducers/index'
+import { configureStore } from '@reduxjs/toolkit'
+import { dustReudcer } from '../reducers/misemeonjiReducer'
 
-// redux window Devtools
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-const store = createStore(
-  rootReducer,
-  composeEnhancers(applyMiddleware(thunk, logger)),
-)
+const store = configureStore({
+  reducer: {
+    dust: dustReudcer,
+  },
+})
 
 export default store
