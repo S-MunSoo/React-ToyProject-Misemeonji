@@ -10,16 +10,17 @@
   align-items: center;
 }
 
-// NavBor
-.nav-bar {
+.home-back {
+  background-color: #f3f4f6;
+  width: 576px;
+  height: 100vh;
+}
+.all-back {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  height: 114px;
-  background-color: Indigo;
-  & button {
-    color: #fff;
-    cursor: pointer;
-  }
+  position: absolute;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 576px;
+  background-color: #f3f4f6;
+  z-index: -9;
 }

@@ -4,12 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faStar, faMap } from '@fortawesome/free-solid-svg-icons'
 const FooterBar = () => {
   return (
-    <div className="w-full fixed bottom-0 shadow-lg text-1xl font-bold">
-      <div className="nav-bar">
-        <button>
+    <div className="h-[100px] fixed bottom-0 w-full">
+      <div className="h-full max-w-xl mx-auto flex items-center justify-around bg-indigo-900 text-white">
+        <button className="cursor-pointer">
           <Link to="/">
             <div className="flex flex-col ">
-              마이지역
+              MyArea
               <FontAwesomeIcon icon={faHome} />
             </div>
           </Link>
@@ -17,7 +17,7 @@ const FooterBar = () => {
         <button>
           <Link to="/allarea">
             <div className="flex flex-col">
-              전체지역
+              AllArea
               <FontAwesomeIcon icon={faMap} />
             </div>
           </Link>
@@ -25,7 +25,7 @@ const FooterBar = () => {
         <button>
           <Link to="/favor">
             <div className="flex flex-col">
-              즐겨찾기
+              BookMark
               <FontAwesomeIcon icon={faStar} />
             </div>
           </Link>

@@ -30,11 +30,11 @@ const Select = () => {
   }, [isStatus, dispatch, sido])
 
   return (
-    <div className="flex items-center mb-12 gap-6">
+    <div className="flex items-center justify-center mb-12 gap-6 mt-20">
       <select
         id="sido"
         onChange={sidoHandlerChange}
-        className="text-center flex-1 outline-none  bg-gray-50 border text-gray-900 text-sm font-bold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-24 px-4 py-2 "
+        className="text-center  outline-none  bg-gray-50 border text-gray-900 text-sm font-bold rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-4 py-2 w-28"
       >
         <option key={'시도'}>시도</option>
         {SIDO_ARRER.map((sido, idx) => (
@@ -46,7 +46,7 @@ const Select = () => {
       <select
         id="gungu"
         onChange={guGunHandler}
-        className="text-center flex-1 outline-none  bg-gray-50 border text-gray-900 text-sm font-bold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-28 px-4 py-2 "
+        className="text-center  outline-none  bg-gray-50 border text-gray-900 text-sm font-bold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-28 px-4 py-2 "
       >
         <option key={'군구'}>군구</option>
         {dust?.map((data) => (

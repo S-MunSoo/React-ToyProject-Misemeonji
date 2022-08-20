@@ -15,28 +15,30 @@ const getParameters = {
   serviceKey: API_KEY,
   returnType: 'json',
   numOfRows: '100',
-  sidoName: '서울',
   pageNo: '1',
   ver: '1.0',
 }
 // 비동기 createAsyncThunk
-export const fetchDust = createAsyncThunk('dust/fetchDust', async () => {
-  try {
-    const response = await axios.get(
-      'B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty',
-      { params: getParameters },
-    )
-    const dust = response.data.response.body.items.map((item) => {
-      return (item = {
-        ...item,
-        isLiked: false,
+export const fetchDust = createAsyncThunk(
+  'dust/fetchDust',
+  async (sidoName) => {
+    try {
+      const response = await axios.get(
+        'B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty',
+        { params: { ...getParameters, sidoName } },
+      )
+      const dust = response.data.response.body.items.map((item) => {
+        return (item = {
+          ...item,
+          isLiked: false,
+        })
       })
-    })
-    return dust //action.payload
-  } catch (error) {
-    console.log(error)
-  }
-})
+      return dust //action.payload
+    } catch (error) {
+      console.log(error)
+    }
+  },
+)
 
 export const dustSlice = createSlice({
   name: 'dust',

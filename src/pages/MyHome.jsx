@@ -9,12 +9,12 @@ const MyHome = () => {
   const data = useSelector(getMyAreaDust)
 
   return (
-    <>
-      <div className="flex flex-col items-center justify-center translate-y-24">
+    <div className="flex flex-col items-center justify-center">
+      <div className="home-back">
         <Select />
         {data ? <Card data={data} /> : '지역 찾기'}
       </div>
-    </>
+    </div>
   )
 }
 
