@@ -30,14 +30,24 @@ const Select = () => {
   }, [isStatus, dispatch, sido])
 
   return (
-    <div>
-      <select id="sido" onChange={sidoHandlerChange}>
+    <div className="flex items-center mb-12 gap-6">
+      <select
+        id="sido"
+        onChange={sidoHandlerChange}
+        className="text-center flex-1 outline-none  bg-gray-50 border text-gray-900 text-sm font-bold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-24 px-4 py-2 "
+      >
         <option key={'시도'}>시도</option>
         {SIDO_ARRER.map((sido, idx) => (
-          <option key={idx}>{sido}</option>
+          <option key={idx} className="option">
+            {sido}
+          </option>
         ))}
       </select>
-      <select id="gungu" onChange={guGunHandler}>
+      <select
+        id="gungu"
+        onChange={guGunHandler}
+        className="text-center flex-1 outline-none  bg-gray-50 border text-gray-900 text-sm font-bold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-28 px-4 py-2 "
+      >
         <option key={'군구'}>군구</option>
         {dust?.map((data) => (
           <option key={data.stationName}>{data.stationName}</option>
