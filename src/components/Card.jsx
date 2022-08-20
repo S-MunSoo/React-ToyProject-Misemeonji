@@ -1,10 +1,10 @@
 import React from 'react'
 
 const Card = ({ data }) => {
-  console.log('datadata', data)
+  console.log('myPlace', data)
   return (
     <div>
-      <div>{data && data[0].stationName}</div>
+      <div>{data && data.stationName}</div>
     </div>
   )
 }

@@ -1,23 +1,17 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+
 import { useSelector } from 'react-redux'
-import { misemeonjiAction } from '../redux/actions/misemeonjiAction'
-import { useDispatch } from 'react-redux'
 import Card from '../components/Card'
 import Select from '../components/Select'
+import { getMyAreaDust } from '../redux/reducers/misemeonjiReducer'
 
 const MyHome = () => {
-  const dispatch = useDispatch()
-  const data = useSelector((state) => state.dust.sidoData)
-  console.log('data', data)
-
-  useEffect(() => {
-    dispatch(misemeonjiAction.getDust())
-  }, [])
+  const data = useSelector(getMyAreaDust)
 
   return (
     <div>
       <Select />
-      {data[0] ? <Card data={data} /> : <>내지역</>}
+      {data ? <Card data={data} /> : '서울 지역 보기'}
     </div>
   )
 }
