@@ -20,14 +20,14 @@ https://user-images.githubusercontent.com/102017296/185797181-07f5651e-d8fd-4ecd
 - react-redux를 활용해서 즐겨찾기 등록/해제 액션에 따라 즐겨찾기 데이터가 변경되도록 하고, 즐겨찾기 데이터는 어떤 컴포넌트에서든 불러올 수 있도록 제작
 - redux-toolkit과 createAsyncThunk를 활용, 내 위치 및 즐겨찾기에 대한 상태를 전역적으로 관리 하였습니다.
 
-#### 사용기술
+### 사용기술
 
 - React
 - Redux-toolkit
 - Sass
 - tailwindcss
 
-## npm 프로젝트 구성요소
+#### npm 프로젝트 구성요소
 
 - Redux : yarn add react-redux
 - Redux-toolkit : yarn add @reduxjs/toolkit
