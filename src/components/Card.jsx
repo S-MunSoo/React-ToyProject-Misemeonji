@@ -1,20 +1,17 @@
-import React, { useRef } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from 'react'
 import {
   addLikeFavor,
   removeLikeFavor,
 } from '../redux/reducers/misemeonjiReducer'
-import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import { useDispatch } from 'react-redux'
-
+import { FaHeart, FaRegHeart } from 'react-icons/fa'
 const Card = (data) => {
   const dispatch = useDispatch()
-  const bookMarkRef = useRef(null)
 
   const onAddLikdedHandler = () => {
-    !data.isLikded
-      ? dispatch(addLikeFavor(data))
-      : dispatch(removeLikeFavor(data.stationName))
+    data.isLiked
+      ? dispatch(removeLikeFavor(data))
+      : dispatch(addLikeFavor(data))
   }
 
   return (
@@ -41,11 +38,14 @@ const Card = (data) => {
             {data.sidoName}
             {data.stationName}
             <button
-              ref={bookMarkRef}
               onClick={onAddLikdedHandler}
-              className="block translate-x-28 -translate-y-12 text-3xl"
+              className="translate-x-28 -translate-y-12 text-3xl cursor-pointer border-0 border-hidden outline-hidden outline-0 "
             >
-              <FontAwesomeIcon icon={faHeart} />
+              {data.isLiked ? (
+                <FaHeart className="text-yellow-300" size="1.5rem" />
+              ) : (
+                <FaRegHeart size="1.5rem" />
+              )}
             </button>
             <div className=" -mt-2 text-4xl">
               {data?.pm10Grade === '1'
@@ -58,7 +58,9 @@ const Card = (data) => {
                 ? '매우나쁨'
                 : ''}
             </div>
-            <div className="mt-4 text-sm">미세먼지 수치 : {data.pm10Grade}</div>
+            <div className="mt-4 text-sm">
+              (미세먼지 수치 : {data.pm10Grade})
+            </div>
           </div>
           <div className="text-xs flex justify-end mt-8 mr-4">
             {data.dataTime}
