@@ -12,3 +12,4 @@
 - Sass : yarn add node-sass
 - Json-server : yarn add json-server
 - axios : yarn add axios
+- React-Spinnder

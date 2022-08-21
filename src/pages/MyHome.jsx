@@ -11,8 +11,17 @@ const MyHome = () => {
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="home-back">
+        <h3 className="text-center text-4xl font-bold text-indigo-700 translate-y-10">
+          내 지역
+        </h3>
         <Select />
-        {data ? <Card data={data} /> : '지역 찾기'}
+        {data ? (
+          <Card {...data} />
+        ) : (
+          <span className="flex items-center justify-center text-4xl font-bold ">
+            내지역 찾기
+          </span>
+        )}
       </div>
     </div>
   )

@@ -24,3 +24,11 @@
   background-color: #f3f4f6;
   z-index: -9;
 }
+.book-back {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  width: 576px;
+  background-color: #f3f4f6;
+  z-index: -9;
+}

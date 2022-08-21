@@ -8,7 +8,6 @@ import { setMyArea } from '../redux/reducers/misemeonjiReducer'
 const Select = () => {
   const dust = useSelector(getDustData)
   const isStatus = useSelector(getStatus)
-  console.log('dust왓?', dust)
 
   const [sido, setSido] = useState(SIDO_ARRER[0])
 
@@ -30,11 +29,11 @@ const Select = () => {
   }, [isStatus, dispatch, sido])
 
   return (
-    <div className="flex items-center justify-center mb-12 gap-6 mt-20">
+    <div className="flex items-center justify-center mb-12 gap-6 mt-16">
       <select
         id="sido"
         onChange={sidoHandlerChange}
-        className="text-center  outline-none  bg-gray-50 border text-gray-900 text-sm font-bold rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-4 py-2 w-28"
+        className="text-center  outline-none  bg-gray-50 border text-gray-900 text-sm font-bold rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-4 py-2 w-32 translate-y-6"
       >
         <option key={'시도'}>시도</option>
         {SIDO_ARRER.map((sido, idx) => (
@@ -46,7 +45,7 @@ const Select = () => {
       <select
         id="gungu"
         onChange={guGunHandler}
-        className="text-center  outline-none  bg-gray-50 border text-gray-900 text-sm font-bold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-28 px-4 py-2 "
+        className="text-center  outline-none  bg-gray-50 border text-gray-900 text-sm font-bold rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-34 px-4 py-2 translate-y-6"
       >
         <option key={'군구'}>군구</option>
         {dust?.map((data) => (
