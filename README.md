@@ -18,10 +18,9 @@ https://user-images.githubusercontent.com/102017296/185797181-07f5651e-d8fd-4ecd
 
 ## npm 프로젝트 구성요소
 
-- 부트스트랩 :npm install react-bootstrap bootstrap
-- 라우터 : yarn add react-router-dom@6
 - Redux : yarn add react-redux
 - Redux-toolkit : yarn add @reduxjs/toolkit
+- 라우터 : yarn add react-router-dom@6
 - Prettiter,Eslint : yarn add --dev prettier eslint-config-prettier
 - Sass : yarn add node-sass
 - tailwindcss
