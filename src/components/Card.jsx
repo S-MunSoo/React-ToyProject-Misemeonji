@@ -5,15 +5,15 @@ import {
 } from '../redux/reducers/misemeonjiReducer'
 import { useDispatch } from 'react-redux'
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
+
 const Card = (data) => {
   const dispatch = useDispatch()
 
-  const onAddLikdedHandler = () => {
+  const onAddLikdedHandler = async () => {
     data.isLiked
-      ? dispatch(removeLikeFavor(data))
-      : dispatch(addLikeFavor(data))
+      ? await dispatch(removeLikeFavor(data))
+      : await dispatch(addLikeFavor(data))
   }
-
   return (
     <div
       className={
@@ -44,7 +44,7 @@ const Card = (data) => {
               {data.isLiked ? (
                 <FaHeart className="text-yellow-300" size="1.5rem" />
               ) : (
-                <FaRegHeart size="1.5rem" />
+                <FaRegHeart size="1.5rem" className="text-yellow-300" />
               )}
             </button>
             <div className=" -mt-2 text-4xl">

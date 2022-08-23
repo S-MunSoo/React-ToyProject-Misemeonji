@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/proxy/*"
+  to = "https://openapi.naver.com/api/:splat"
+  status = 200
+  force = true
