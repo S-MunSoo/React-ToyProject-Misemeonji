@@ -1,8 +1,6 @@
 # React ToyProject Misemeonji
 
 
-[데모](https://eclectic-valkyrie-9c7cbf.netlify.app/)
-
 https://user-images.githubusercontent.com/102017296/186952594-23565218-4f4f-431f-98e9-68861db4673f.mov
 
 ## 공공데이터를 활용한 미세먼지 알리미App
