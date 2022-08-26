@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { SIDO_ARRER } from '../util/constants'
 import { getDustData } from '../redux/reducers/misemeonjiReducer'
-import { fetchDust, getStatus } from '../redux/reducers/misemeonjiReducer'
+import { fetchDust } from '../redux/reducers/misemeonjiReducer'
 import { setMyArea } from '../redux/reducers/misemeonjiReducer'
 
 const Select = () => {
   const dust = useSelector(getDustData)
-  const isStatus = useSelector(getStatus)
 
   const [sido, setSido] = useState(SIDO_ARRER[0])
 
@@ -23,10 +22,8 @@ const Select = () => {
   }
 
   useEffect(() => {
-    if (isStatus === 'idle') {
-      dispatch(fetchDust(sido))
-    }
-  }, [isStatus, dispatch, sido])
+    dispatch(fetchDust(sido))
+  }, [dispatch, sido])
 
   return (
     <div className="flex items-center justify-center mb-12 gap-6 mt-16">

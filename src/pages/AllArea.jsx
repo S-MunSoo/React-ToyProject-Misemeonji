@@ -8,7 +8,6 @@ const AllArea = () => {
   const dispatch = useDispatch()
   const dust = useSelector(getDustData)
 
-  console.log('전국', dust)
   useEffect(() => {
     dispatch(fetchDust('전국'))
   }, [])

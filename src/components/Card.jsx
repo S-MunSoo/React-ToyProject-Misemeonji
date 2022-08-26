@@ -14,6 +14,7 @@ const Card = (data) => {
       ? await dispatch(removeLikeFavor(data))
       : await dispatch(addLikeFavor(data))
   }
+  console.log(data.isLiked)
   return (
     <div
       className={

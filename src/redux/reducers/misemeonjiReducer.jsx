@@ -6,7 +6,6 @@ const initialState = {
   likedDust: [],
   myAreaDust: null,
   loading: false,
-  status: 'idle',
   error: null,
 }
 const API_KEY = process.env.REACT_APP_SERVICE_KEY
@@ -18,6 +17,9 @@ const getParameters = {
   ver: '1.0',
 }
 // 비동기 createAsyncThunk
+// axios.defaults
+// const path = axios.create({})
+
 export const fetchDust = createAsyncThunk(
   'dust/fetchDust',
   async (sidoName) => {
@@ -34,7 +36,7 @@ export const fetchDust = createAsyncThunk(
       })
       return dust //action.payload
     } catch (error) {
-      console.log(error)
+      return error
     }
   },
 )
@@ -53,29 +55,41 @@ export const dustSlice = createSlice({
     },
     // payload: dustDataArr 즐겨찾기
     addLikeFavor(state, action) {
-      state.likedDust.push({ ...action.payload, isLiked: true })
+      // eslint-disable-next-line array-callback-return
+      state.dustDataArr.map((ele) => {
+        if (ele.stationName === action.payload.stationName) {
+          ele.isLiked = true
+          state.likedDust.push(ele)
+        }
+      })
     },
     removeLikeFavor(state, action) {
       let pastData = action.payload
-      pastData = { ...pastData, isLiked: false }
-      state.likedDust = state.likedDust.filter(
-        (item) => item.stationName !== pastData.stationName,
-      )
+      // eslint-disable-next-line array-callback-return
+      state.dustDataArr.map((element) => {
+        if (element.stationName === action.payload.stationName) {
+          element.isLiked = false
+          state.likedDust = state.likedDust.filter(
+            (item) => item.stationName !== pastData.stationName,
+          )
+        }
+      })
     },
   },
   extraReducers(builder) {
     // 비동기 처리 후 첫번쨰 실행
+    // 데이터 통신중
     builder.addCase(fetchDust.pending, (state) => {
       state.loading = 'true'
     })
+    // 데이터 통신 요청 성공
     builder.addCase(fetchDust.fulfilled, (state, action) => {
       const result = action.payload
-      state.status = 'succeeded'
       state.dustDataArr = result
       state.loading = 'false'
     })
+    // 요청 실패
     builder.addCase(fetchDust.rejected, (state, action) => {
-      state.status = 'failed'
       state.error = action.error.message
       state.loading = 'false'
     })
@@ -88,5 +102,4 @@ export const dustReudcer = dustSlice.reducer
 export const getDustData = (state) => state.dust.dustDataArr
 export const getMyAreaDust = (state) => state.dust.myAreaDust
 export const getLikedDust = (state) => state.dust.likedDust
-export const getStatus = (state) => state.dust.status
 export const getLoading = (state) => state.dust.loading

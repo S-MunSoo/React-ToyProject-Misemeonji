@@ -6,8 +6,6 @@ import Card from '../components/Card'
 const FavorList = () => {
   const LikedDust = useSelector(getLikedDust)
 
-  console.log('LikedDust??????', LikedDust)
-
   return (
     <div className="relative flex justify-center">
       <h3 className="text-center text-4xl font-bold text-indigo-700 translate-y-10">
