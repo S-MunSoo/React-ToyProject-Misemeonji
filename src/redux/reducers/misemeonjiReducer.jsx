@@ -16,6 +16,7 @@ const getParameters = {
   pageNo: '1',
   ver: '1.0',
 }
+
 // 비동기 createAsyncThunk
 // axios.defaults
 // const path = axios.create({})
